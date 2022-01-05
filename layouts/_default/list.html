@@ -39,7 +39,7 @@
 {{- $pages := union .RegularPages .Sections }}
 
 {{- if .IsHome }}
-{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where ( where site.RegularPages "Type" "in" site.Params.mainSections ) ".Params.offTheRecord" "!=" true  }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
 {{- $pages = where $pages "Params.offTheRecord" "!=" "true"  }}
 {{- end }}
@@ -72,9 +72,9 @@
     </h2>
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
+  <section class="entry-content">
     <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
+  </section>
   {{- end }}
   {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
