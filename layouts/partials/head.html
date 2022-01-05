@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.offTheRecord true) (ne .Params.robotsNoIndex true) }}
+{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) | and (ne .Params.offTheRecord true) }}
 <meta name="robots" content="index, follow">
 {{- else }}
 <meta name="robots" content="noindex, nofollow">
@@ -61,7 +61,7 @@
 
 {{- /* order is important */}}
 {{- $core := (slice $theme_vars $reset $common $hljs $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
-{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify | resources.Fingerprint }}
+{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify }}
 
 {{- /* bundle all required css */}}
 {{- /* Add extended css after theme style */ -}}
