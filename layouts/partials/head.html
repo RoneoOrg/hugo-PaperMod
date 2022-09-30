@@ -49,7 +49,7 @@
 
 {{- /* bundle all required css */}}
 {{- /* Add extended css after theme style */ -}}
-{{- $stylesheet := (slice $core $extended) | resources.Concat "assets/css/stylesheet.css" | minify }}
+{{- $stylesheet := (slice $core $extended) | resources.Concat "assets/css/stylesheet.css" }}
 
 {{- if not site.Params.assets.disableFingerprinting }}
 {{- $stylesheet := $stylesheet | fingerprint }}
