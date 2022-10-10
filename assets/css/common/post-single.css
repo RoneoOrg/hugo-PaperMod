@@ -291,6 +291,18 @@
     margin-top: 56px;
 }
 
+.post-footer h3 {
+  margin: 2em 0 1.2em;
+}
+
+.post-footer .related ul  {
+    padding-inline-start: 20px;
+}
+
+.post-footer .related a:hover {
+  box-shadow: 0 1px;
+}
+
 .post-tags li {
     display: inline-block;
     margin-inline-end: 3px;
@@ -385,6 +397,16 @@ h6:hover .anchor {
 
 [dir="rtl"] .paginav .next {
     text-align: left;
+}
+
+.paginav .name {
+  display: none;
+}
+
+@media screen and (min-width: 540px) {
+  .paginav .name {
+    display: block;
+  }
 }
 
 h1>a>svg {

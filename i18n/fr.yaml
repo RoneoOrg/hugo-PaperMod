@@ -31,3 +31,6 @@
 
 - id: code_copied
   translation: "Copié !"
+
+- id: related
+  translation: "Sur le même sujet"
