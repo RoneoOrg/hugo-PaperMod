@@ -61,7 +61,7 @@
 
 {{- /* order is important */}}
 {{- $core := (slice $theme_vars $reset $common $hljs $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
-{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify }}
+{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify | resources.Fingerprint }}
 
 {{- /* bundle all required css */}}
 {{- /* Add extended css after theme style */ -}}
