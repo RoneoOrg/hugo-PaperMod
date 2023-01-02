@@ -1,3 +1,15 @@
-{{- /* Comments area start */ -}}
-{{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
+
+{{- /* Comments with cusdis.com */ -}}
+
+{{ if .Site.Params.CommentsCusdisID }}
+    <h4>Discussion:</h4>
+    <div id="cusdis_thread" data-host="https://cusdis.com"
+      data-app-id="{{ .Site.Params.CommentsCusdisID }}"
+      data-page-id="{{ .File.UniqueID }}"
+      data-page-url="{{ .Permalink }}"
+      data-page-title="{{ .Title }}">
+    </div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+{{end}}
+
 {{- /* Comments area end */ -}}
