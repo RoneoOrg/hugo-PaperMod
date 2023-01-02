@@ -2,7 +2,8 @@
 {{- /* Comments with cusdis.com */ -}}
 
 {{ if .Site.Params.CommentsCusdisID }}
-    <h4>Discussion:</h4>
+
+    <h2>Discussion:</h2>
     <div id="cusdis_thread" data-host="https://cusdis.com"
       data-app-id="{{ .Site.Params.CommentsCusdisID }}"
       data-page-id="{{ .File.UniqueID }}"
