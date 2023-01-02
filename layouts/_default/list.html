@@ -62,6 +62,7 @@
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
+<div class="list-view article-wrapper{{with .Params.customClasses}} {{.}}{{end}}">
 <article class="{{ $class }}">
   {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
   {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
@@ -83,7 +84,8 @@
   {{- end }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
-{{- end }}
+</div>
+{{- end }}{{/* /div. article-wrapper */}}
 
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
