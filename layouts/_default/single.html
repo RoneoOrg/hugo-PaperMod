@@ -1,5 +1,9 @@
 {{- define "main" }}
 
+
+
+<div class="single-view article-wrapper{{with .Params.customClasses}} {{.}}{{end}}">
+
 <article class="post-single">
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
@@ -56,10 +60,9 @@
     {{- end }}
   </footer>
 
-  {{- if (.Param "comments") }}
-  {{- partial "comments.html" . }}
-  {{- end }}
 </article>
+
+</div>{{/*  .article-wrapper  */}}
 
 {{/*  Load plyr.io  */}}
 
