@@ -8,12 +8,12 @@
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
     <h1 class="post-title">
-      {{ .Title }}
+      {{ .Title | plainify | markdownify }}
       {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
     </h1>
     {{- if .Description }}
     <div class="post-description">
-      {{ .Description }}
+      {{ .Description | markdownify }}
     </div>
     {{- end }}
     {{- if not (.Param "hideMeta") }}
@@ -41,17 +41,25 @@
 
   <footer class="post-footer">
 
+    {{/*  Comments  */}}
+    {{- if  and (.Param "comments") (eq .Type "article") }}
+    {{- partial "comments.html" . }}
+    {{- end }}
+
     {{/*  Show related posts  */}}
     {{- if (.Param "ShowRelatedContent") }}
       {{- partial "related.html" . }}
     {{- end }}
 
+    {{/*  Tags  */}}
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
       {{- range ($.GetTerms $tags) }}
       <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
+
+    {{/*  Nav Links  */}}
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}
