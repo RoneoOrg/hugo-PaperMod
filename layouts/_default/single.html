@@ -61,4 +61,11 @@
   {{- end }}
 </article>
 
+{{/*  Load plyr.io  */}}
+
+{{- if not (.Param "disablePlyr") }}
+  {{- partial "plyr.html" . -}}
+{{- end }}
+
+
 {{- end }}{{/* end main */}}

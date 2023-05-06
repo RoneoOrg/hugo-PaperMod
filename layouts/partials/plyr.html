@@ -1,0 +1,39 @@
+
+{{/*  Load plyr.io  */}}
+
+{{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" )  ( .HasShortcode "archive-audio" ) }}
+
+    <link rel="stylesheet" href="/css/plyr.css">
+
+    <script src="/js/plyr.polyfilled.js" crossorigin="anonymous"></script>
+    <script>
+      (function() {
+        const players = Array.from(document.querySelectorAll('.player')).map(
+            p => new Plyr(p, {
+                controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'download', 'fullscreen'],
+                {{/*  autoplay: true,  */}}
+                {{/*  settings: ['speed']  */}}
+            })
+        );
+        {{/*  Stop other players when starting  */}}
+        players.forEach(function(p){
+            p.on('play', event => {
+                const instance = event.detail.plyr;
+                console.log('Stop others players');
+                players.forEach(function(p){ if(p != instance) p.stop()});
+            })
+        });
+    })();
+    </script>
+
+    {{/*  Former way to load Plyr - functionnal but do no stop other players when starting.
+          It's a mess when multiple players are on the same page and `autoplay:true` is enabled
+      <script>
+      const players = Plyr.setup('.player', {
+            settings: ['speed'],
+            controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'download'],
+            autoplay: true
+          });
+    </script>  */}}
+
+{{ end }}{{/*  /end Loading plyr.io  */}}
