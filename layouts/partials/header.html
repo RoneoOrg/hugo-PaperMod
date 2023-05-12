@@ -70,6 +70,10 @@
                     {{ site.Params.label.iconSVG | safeHTML }}
                 {{- end -}}
                 {{- $label_text -}}
+                <span class="tagline">
+                  {{ .Language.Params.tagline | emojify  }}
+                </span>
+
             </a>
             {{- end }}
             <div class="logo-switches">

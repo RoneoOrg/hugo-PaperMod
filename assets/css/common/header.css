@@ -23,7 +23,8 @@
 }
 
 .logo a {
-    font-size: 24px;
+    font-family: var(--font-heading);
+    font-size: 28px;
     font-weight: 700;
 }
 
@@ -34,6 +35,15 @@
     transform: translate(0, -10%);
     border-radius: 6px;
     margin-inline-end: 8px;
+}
+
+.tagline {
+  font-size: 0.8em;
+  opacity: 0.9;
+  display: block;
+  margin-left: 1em;
+  line-height: 1.2em;
+  padding-bottom: .8em;
 }
 
 button#theme-toggle {
