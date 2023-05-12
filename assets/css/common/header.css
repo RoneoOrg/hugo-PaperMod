@@ -36,6 +36,15 @@
     margin-inline-end: 8px;
 }
 
+.tagline {
+  font-size: 0.8em;
+  opacity: 0.9;
+  display: block;
+  margin-left: 1em;
+  line-height: 1.2em;
+  padding-bottom: .8em;
+}
+
 button#theme-toggle {
     font-size: 26px;
     margin: auto 4px;
