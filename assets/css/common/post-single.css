@@ -207,10 +207,11 @@
     word-break: break-all;
 }
 
+
 .post-content blockquote {
-    margin: 20px 0;
-    padding: 0 14px;
-    border-inline-start: 3px solid var(--primary);
+  margin: 30px 0 30px 15px;
+  padding: 0 30px 0 20px;
+  border-inline-start: 6px solid var(--border);
 }
 
 .post-content hr {
